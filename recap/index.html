@@ -15,7 +15,7 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <div id="root"></div>
+    <div id="root" style="background-color: lightcyan; color: purple"></div>
 
     <!-- Basic Hello World program using JS -->
     <!-- writing h1 tag using JavaScript -->
@@ -27,10 +27,8 @@
       root.appendChild(heading);
     </script> -->
     <script>
-      const heading = React.createElement("h1", {}, "Hello world from React!");
-
+      const heading = React.createElement("h1", {}, "Hello React!");
       const root = ReactDOM.createRoot(document.getElementById("root"));
-
       root.render(heading);
     </script>
   </body>

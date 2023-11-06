@@ -14,6 +14,14 @@ ____  inside simple html tags h1 or something.
 ___ writing h1 tag using JS then appending (using appendChild) to any div using it's ID (getDocumentByID).
 as we know browser has JS Engine (browser's superpower) that knows all these methods.
 
+<script>
+      const heading = document.createElement("h1");
+      heading.innerHTML = "Hello World from JavaScript!";
+
+      const root = document.getElementById("root");
+      root.appendChild(heading);
+</script>
+
 3)  Using React
 ___ way1). Use CDN links 
 H.W.) CDN? -> Content Delivery Network
@@ -35,7 +43,22 @@ Ultimately React is a JS Library, right!
 https://unpkg.com/react18/umd/react.development.js ---------it's core react thing.
 https://unpkg.com/react-dom@18/umd/react-dom.development.js  ---- it's kind of bridge between React and browser.
 
+//Basic Hello World program using React.
 
-_____way2).
+<div id="root"><div>
+(simple div tag)
 
+how to insert any tag inside this div tag without directly using html, but using React?
+<script>
+//three input React.createElement take --
+//1st input is which tag want to create
+//2nd is object
+//3rd is what exactly want to show
+// CREATING h1 element inside React
+ 	const heading = React.createElement("h1",{},"Hello React!");
+//react wants to have a root where it should render the things or will do all DOM manipulation.
+//PUT h1 Tag into DOM
+ 	const root = ReactDOM.createRoot(document.getElementByID("root"));
+	root.render(heading);
 
+</script>
