@@ -62,3 +62,152 @@ how to insert any tag inside this div tag without directly using html, but using
 	root.render(heading);
 
 </script>
+
+________________________________________
+putting all React code in new file
+app.js
+and linking it to html using script tag.
+
+The most difficult task in webpage interaction is movement of nodes in DOM manipulation.
+(DOM tree change (putting/removing something) -> expensive)
+
+all library developers focused on minimize these DOM manipulation.
+
+so now,
+
+2nd parameter to React.createElement is {} -> ATTRIBUTE to our task
+like;
+id or class to that element.
+{class: "MainHeading"}
+
+even you can write some not-known attribute like:
+{class: "MainHeading", xyz:"abc"}
+
+________________________________
+What is React.createElement ?
+-> it's an object
+  (so this h1 is not a tag, it's a React element-- React Element is nothing but a JS object)
+	props: (children and attribute we are passing)
+WILL SEE LATER>>>>>>>>>
+__________________________________________________
+app.js file
+
+const heading = React.createElement(
+  "h1",
+  { className: "MainHeading", xyz: "abc" },
+  "Hello React!"
+);
+
+//don't use class, use className
+
+console.log(heading); //object
+//heading isn't h1 tag yet, it's a JS-Object or a React Element.
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//this render method is converting the heading object to h1 tag and put it into DOM. -- this render method only putting this heading into that div h1 tag.
+root.render(heading);
+________________________________________________
+How to created nested divs as HTML in React?
+
+HTML:
+<div id="parent">
+   <div id="child">
+      <h1>I'm h1 tag</h1>
+   </div>
+</div>
+
+React:
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "class" },
+    React.createElement("h1", {}, "I'm h1 tag")
+  )
+);
+
+//parent is ReactElement that is an object
+//this ReactElement converts to HTML (browser Understands) using render method.
+
+now--->> what if Siblings to h1 tag need to put inside child div??
+
+use Array Of Children.
+
+eg:
+HTML:
+<div id="parent">
+   <div id="child">
+      <h1>I'm h1 tag</h1>
+      <h2>I'm h2 tag -sibling to h1.(use Array to fineme)</h2>
+   </div>
+</div>
+
+REACT:
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement("div", { id: "class" }, [
+    React.createElement("h1", {}, "I'm h1 tag"),
+    React.createElement("h2", {}, "I'm h2 tag"),
+  ])
+);
+
+some warning in console?
+yeah : react.development.js:199 Warning: Each child in a list should have a unique "key" prop.
+- don't worry, will see later!
+
+now, TIDY CODE WITH REACT...Uhhhmmmmm
+HTML:
+<div id="parent">
+   <div id="child1">
+      <h1>I'm h1 tag</h1>
+      <h2>I'm h2 tag</h2>
+   </div>
+   <div id="child2">
+      <h3>I'm h3 tag</h3>
+      <h4>I'm h4 tag</h4>
+   </div>
+</div>
+
+React:
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child1" }, [
+    React.createElement("h1", {}, "I'm h1 tag"),
+    React.createElement("h2", {}, "I'm h2 tag"),
+  ]),
+  React.createElement("div", { id: "child2" }, [
+    React.createElement("h3", {}, "I'm h3 tag"),
+    React.createElement("h4", {}, "I'm h4 tag"),
+  ]),
+]);
+
+---->> oh did you see, REACT code is making my life tough!...
+Surprise.....
+That's why JSX is here.
+JSX makes our life easy, when we have to make tags.
+
+--till now we saw, Core of React....now we will see JavaScript extension use.
+
+ORDER OF FILES MATTERS
+- Is order of scripts file matters?
+Yes, React CDN should be inserted(imported) first.
+so, if you'll put app.js file upper to CDN links, it won't work.
+
+REPLACE NOT APPENDED.......
+- for the div id you are rendering if there is any exisiting thing there-- then rendered one will replace it.
+
+React is a Library...
+so what's difference b/w Library & Framework
+(so as we see above, React can be use in a small portion as well defined as root.)
+That' why react is not a full-fledged framework- it can work in a small portion of your project as well.
+
+_______episode01_Inception_END_______________________________
+
+
+
+
+
+
+

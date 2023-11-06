@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Namaste React</title>
   </head>
   <body>
+    <p style="color: Red">
+      See! React isn't working here, working only inside Div id=root.
+    </p>
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -15,7 +19,10 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <div id="root" style="background-color: lightcyan; color: purple"></div>
+    <div id="root" style="background-color: lightcyan; color: purple">
+      <p>Mujhe rendered element replace kr dega!</p>
+      <h1>Jawan is SuperHit!</h1>
+    </div>
 
     <!-- Basic Hello World program using JS -->
     <!-- writing h1 tag using JavaScript -->
@@ -26,10 +33,6 @@
       const root = document.getElementById("root");
       root.appendChild(heading);
     </script> -->
-    <script>
-      const heading = React.createElement("h1", {}, "Hello React!");
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(heading);
-    </script>
+    <script src="./app.js"></script>
   </body>
 </html>
