@@ -1,0 +1,41 @@
+html:5
+Emmet
+! (enter)
+
+____________________
+1). Hello World using simple HTML
+2). ................. JavaScript
+3). ..................Using React
+
+so, 1). Hello World using simple HTML.
+____  inside simple html tags h1 or something.
+
+2). using JS
+___ writing h1 tag using JS then appending (using appendChild) to any div using it's ID (getDocumentByID).
+as we know browser has JS Engine (browser's superpower) that knows all these methods.
+
+3)  Using React
+___ way1). Use CDN links 
+H.W.) CDN? -> Content Delivery Network
+     (Both React and ReactDOM are available over a CDN):
+      <script crossorigin src="https://unpkg.com/react18/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+H.W.) crossorigin -> what is crossorigin?
+
+so what's exactly there in these links of CDN that is connecting our project to React.
+Explore: 
+https://unpkg.com/react18/umd/react.development.js
+https://unpkg.com/react-dom@18/umd/react-dom.development.js
+
+these are plain JS code and React is inside there
+
+Ultimately React is a JS Library, right!
+
+https://unpkg.com/react18/umd/react.development.js ---------it's core react thing.
+https://unpkg.com/react-dom@18/umd/react-dom.development.js  ---- it's kind of bridge between React and browser.
+
+
+_____way2).
+
+
